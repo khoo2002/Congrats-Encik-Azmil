@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A small gift landing page: congratulations & care guide for a lotus bamboo desk plant." />
+  <meta name="theme-color" content="#fbfdf9">
+  <title>Congratulations Encik Azmil — Lotus Bamboo</title>
+  
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style>
+    /* Custom styles can be minimal with Tailwind */
+    body {
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(180deg, #fbfdf9, #f7fbf6 60%);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Smooth transition for accordion */
+    .accordion-body {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    .accordion-body.is-open {
+      max-height: 500px; /* Adjust if content is longer */
+    }
+  </style>
+</head>
+<body class="text-slate-800 p-4 sm:p-6 lg:p-10 flex items-start justify-center min-h-screen">
+  <div class="w-full max-w-4xl mx-auto">
+    <!-- Header -->
+    <header class="flex items-center gap-4 mb-6">
+      <!--icon can't see because of the background color-->
+  <div class="flex-shrink-0 w-16 h-16 rounded-2xl grid place-items-center bg-gradient-to-br from-[#b6e3c6] to-[#e6f7e6] shadow-lg shadow-green-900/10">
+        <!-- Bamboo icon -->
+         <!--make the bamboo icon bigger-->
+        <img src="logo.png" alt="Bamboo icon" class="w-18 h-18">
+      </div>
+      <div>
+        <h1 class="text-xl sm:text-2xl font-bold text-slate-900">Congratulations Encik Azmil!</h1>
+        <p class="text-sm sm:text-base text-slate-600">Wishing you growth, prosperity, and success — like the lotus bamboo.</p>
+      </div>
+    </header>
+
+    <main class="grid grid-cols-1 md:grid-cols-3 md:gap-6 lg:gap-8">
+      <!-- Main Content (Left Column on Desktop) -->
+      <section class="md:col-span-2 space-y-6">
+        <!-- Hero Card -->
+        <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-center gap-4 shadow-lg shadow-green-900/5" role="figure" aria-label="Lotus bamboo illustration and greeting">
+          <div class="flex-shrink-0">
+            <!-- bamboo.png image, same size as previous SVG -->
+            <img src="bamboo.png" alt="Lotus bamboo" class="w-28 h-28 sm:w-36 sm:h-36 object-contain">
+          </div>
+          <div class="text-center sm:text-left">
+            <h2 class="text-lg font-bold text-slate-800">This little lotus bamboo celebrates your promotion.</h2>
+            <p class="mt-2 text-sm text-slate-600">May it remind you of steady growth and calm focus. Here's a concise care guide so it thrives on your desk.</p>
+            <div class="mt-4">
+              <span class="inline-block bg-gradient-to-r from-amber-500 to-amber-600 text-white text-xs font-semibold px-4 py-2 rounded-full shadow-md shadow-amber-900/20">Prosperity & Growth 🌱</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Care Guide Card -->
+        <div class="bg-white rounded-2xl p-4 sm:p-6 shadow-md shadow-green-900/5 border border-slate-500/5">
+          <h3 class="text-lg font-bold text-slate-800 mb-4">🌱 Ongoing Care Guide</h3>
+          <div class="space-y-3 text-sm text-slate-600">
+            <p><strong>Water refresh:</strong> Change water every <strong>7–10 days</strong>. Rinse the vase and pebbles to prevent algae.</p>
+            <p><strong>Soil watering:</strong> Water only when the top <strong>1-2 inches</strong> of soil feel dry.</p>
+            <p><strong>Light:</strong> Prefers bright, indirect sunlight. A desk lamp is also fine if natural light is low.</p>
+            <div>
+              <strong>Fertilizer:</strong>
+              <ul class="list-disc list-inside space-y-1 mt-1 pl-1">
+                <li><strong>In water:</strong> Add one drop of liquid houseplant fertilizer every 4–6 weeks.</li>
+                <li><strong>In soil:</strong> Use a balanced fertilizer monthly during growing seasons.</li>
+              </ul>
+            </div>
+            <p><strong>Cleaning:</strong> Gently wipe leaves with a damp cloth to remove desk dust.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sidebar (Right Column on Desktop) -->
+      <aside class="space-y-6 mt-6 md:mt-0">
+        <!-- Common Problems Card -->
+        <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-md shadow-green-900/5 border border-slate-500/5">
+          <h3 class="text-lg font-bold text-slate-800 mb-3">⚠️ Common Problems & Fixes</h3>
+          <div class="space-y-2 text-sm">
+            <!-- Accordion Item 1 -->
+            <div class="border-b border-slate-200/80 last:border-b-0">
+              <button class="accordion-header w-full flex justify-between items-center py-3 text-left font-semibold text-slate-700">
+                <span>Yellow leaves</span>
+                <svg class="chevron w-5 h-5 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+              </button>
+              <div class="accordion-body text-slate-600">
+                <p class="pb-3">Usually caused by too much direct sun or stagnant water. Try moving the plant to a spot with less direct light and change its water more frequently.</p>
+              </div>
+            </div>
+            <!-- Accordion Item 2 -->
+            <div class="border-b border-slate-200/80 last:border-b-0">
+              <button class="accordion-header w-full flex justify-between items-center py-3 text-left font-semibold text-slate-700">
+                <span>Brown leaf tips</span>
+                <svg class="chevron w-5 h-5 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+              </button>
+              <div class="accordion-body text-slate-600">
+                <p class="pb-3">This often points to dry air or chemicals in tap water. Let tap water sit out for 24 hours before use, or switch to filtered water.</p>
+              </div>
+            </div>
+             <!-- Accordion Item 3 -->
+            <div class="border-b border-slate-200/80 last:border-b-0">
+              <button class="accordion-header w-full flex justify-between items-center py-3 text-left font-semibold text-slate-700">
+                <span>Soft / mushy stalk</span>
+                <svg class="chevron w-5 h-5 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+              </button>
+              <div class="accordion-body text-slate-600">
+                <p class="pb-3">A sign of root rot. If possible, carefully cut off the rotted section with a clean knife and place the healthy part in fresh, clean water.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gift Note Card -->
+        <div class="bg-white rounded-2xl p-4 sm:p-5 text-sm text-slate-600 shadow-md shadow-green-900/5 border border-slate-500/5">
+          <p>Gifted with respect and best wishes —<br><strong class="text-slate-800">Khoo Zhao Wei (Zhao)</strong></p>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="mt-8 text-center text-xs text-slate-500">
+      <p>Made with care for Encik Azmil</p>
+    </footer>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+      accordionHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+          const accordionBody = header.nextElementSibling;
+          const chevron = header.querySelector('.chevron');
+
+          // Toggle open state
+          const isOpen = accordionBody.classList.toggle('is-open');
+          
+          // ARIA attributes for accessibility
+          header.setAttribute('aria-expanded', isOpen);
+
+          // Animate padding and chevron
+          if (isOpen) {
+            accordionBody.style.paddingTop = '0.25rem'; // corresponds to pt-1
+            accordionBody.style.paddingBottom = '0.75rem'; // corresponds to pb-3
+            chevron.style.transform = 'rotate(180deg)';
+          } else {
+            accordionBody.style.paddingTop = '0';
+            accordionBody.style.paddingBottom = '0';
+            chevron.style.transform = 'rotate(0deg)';
+          }
+        });
+        
+        // Set initial ARIA state
+        header.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+</html>
