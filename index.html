@@ -59,9 +59,18 @@
       <section class="md:col-span-2 space-y-6">
         <!-- Hero Card -->
         <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-center gap-4 shadow-lg shadow-green-900/5" role="figure" aria-label="Lotus bamboo illustration and greeting">
+          <div class="text-center sm:text-left">
+            <div class="mt-4">
+              <span class="inline-block bg-gradient-to-r from-green-500 to-green-700 text-white text-xs font-semibold px-4 py-2 rounded-full shadow-md shadow-amber-900/20  border-white">Click the bamboo to see the real plant!</span>
+            </div>
+          </div>
+          
           <div class="flex-shrink-0">
-            <!-- bamboo.png image, same size as previous SVG -->
-            <img src="bamboo.png" alt="Lotus bamboo" class="w-28 h-28 sm:w-36 sm:h-36 object-contain">
+            <!-- bamboo.png image, clickable to show real plant -->
+            <div class="relative w-28 h-28 sm:w-36 sm:h-36">
+ 
+              <img src="bamboo.png" alt="Lotus bamboo" id="showRealBamboo" class="w-full h-full object-contain rounded-xl cursor-pointer hover:scale-105 transition-transform">
+            </div>
           </div>
           <div class="text-center sm:text-left">
             <h2 class="text-lg font-bold text-slate-800">This little lotus bamboo celebrates your promotion.</h2>
@@ -144,23 +153,17 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      // Accordion logic
       const accordionHeaders = document.querySelectorAll('.accordion-header');
-
       accordionHeaders.forEach(header => {
         header.addEventListener('click', () => {
           const accordionBody = header.nextElementSibling;
           const chevron = header.querySelector('.chevron');
-
-          // Toggle open state
           const isOpen = accordionBody.classList.toggle('is-open');
-          
-          // ARIA attributes for accessibility
           header.setAttribute('aria-expanded', isOpen);
-
-          // Animate padding and chevron
           if (isOpen) {
-            accordionBody.style.paddingTop = '0.25rem'; // corresponds to pt-1
-            accordionBody.style.paddingBottom = '0.75rem'; // corresponds to pb-3
+            accordionBody.style.paddingTop = '0.25rem';
+            accordionBody.style.paddingBottom = '0.75rem';
             chevron.style.transform = 'rotate(180deg)';
           } else {
             accordionBody.style.paddingTop = '0';
@@ -168,10 +171,59 @@
             chevron.style.transform = 'rotate(0deg)';
           }
         });
-        
-        // Set initial ARIA state
         header.setAttribute('aria-expanded', 'false');
       });
+
+      // Show real bamboo image logic
+      const showBtn = document.getElementById('showRealBamboo');
+      if (showBtn) {
+        showBtn.addEventListener('click', () => {
+          // Create overlay
+          const overlay = document.createElement('div');
+          overlay.style.position = 'fixed';
+          overlay.style.top = '0';
+          overlay.style.left = '0';
+          overlay.style.width = '100vw';
+          overlay.style.height = '100vh';
+          overlay.style.background = 'rgba(0,0,0,0.7)';
+          overlay.style.display = 'flex';
+          overlay.style.alignItems = 'center';
+          overlay.style.justifyContent = 'center';
+          overlay.style.zIndex = '1000';
+
+          // Real bamboo image
+          const img = document.createElement('img');
+          img.src = 'realbamboo.jpg';
+          img.alt = 'Real Lotus Bamboo';
+          img.style.maxWidth = '90vw';
+          img.style.maxHeight = '80vh';
+          img.style.borderRadius = '1rem';
+          img.style.boxShadow = '0 4px 32px rgba(0,0,0,0.3)';
+
+          // Close button
+          const closeBtn = document.createElement('button');
+          closeBtn.textContent = 'Close';
+          closeBtn.style.position = 'absolute';
+          closeBtn.style.top = '2rem';
+          closeBtn.style.right = '2rem';
+          closeBtn.style.background = '#166534';
+          closeBtn.style.color = '#fff';
+          closeBtn.style.padding = '0.5rem 1.2rem';
+          closeBtn.style.borderRadius = '999px';
+          closeBtn.style.fontSize = '1rem';
+          closeBtn.style.border = 'none';
+          closeBtn.style.cursor = 'pointer';
+          closeBtn.style.boxShadow = '0 2px 8px rgba(0,0,0,0.2)';
+
+          closeBtn.addEventListener('click', () => {
+            document.body.removeChild(overlay);
+          });
+
+          overlay.appendChild(img);
+          overlay.appendChild(closeBtn);
+          document.body.appendChild(overlay);
+        });
+      }
     });
   </script>
 </body>
